@@ -15,6 +15,7 @@ class TareasController < ApplicationController
         
         if @tarea.save 
         #insert into tareas (titulo,descripcion) values (formulario)
+        redirect_to controller: 'tareas', action: 'show', id: @tarea.id
         else
         render :new
         end
@@ -22,7 +23,17 @@ class TareasController < ApplicationController
    
    def show
       @tarea = Tarea.find(params[:id])
-            #select * from tareas where id=:id
+      #select * from tareas where id=:id
     end
-            	
+
+    def destroy
+      @tarea = Tarea.find(params[:id]) #Ruta
+      @tarea.destroy                  #Eliminar
+      redirect_to controller:"tareas", action: "index" #ir a la pg principal
+    end
+    
+    def edit
+      @tarea = Tarea.find(params[:id]) #Ruta
+      
+      end 	
 end

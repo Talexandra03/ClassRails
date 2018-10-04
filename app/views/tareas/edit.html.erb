@@ -3,9 +3,8 @@
 		<%=mensaje%>
 		</p>
 <%end%>
-<h1>Tarea nueva</h1>
+
 <%= form_for(@tarea) do |f|%>
-	
 <div class="form-group">
 	<label>Titulo</label>
 	<%=f.text_field :titulo, class:"form-control", :required => true %>
@@ -16,6 +15,6 @@
 	<label>Descripción</label>
 	<%= f.text_area :descripcion, class:"form-control", :required => true %>
 </div>
-<%=f.submit "Crear", class:"btn btn-primary" %>
+<%=f.submit "Editar", class:"btn btn-warning" %>
 
 <%end%>
