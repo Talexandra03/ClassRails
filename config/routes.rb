@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   get 'tareas/:id/edit', to: 'tareas#edit'
   put 'tareas/:id', to: 'tareas#update'
 
-
-
-  get 'bienvenido/index'
+    get 'bienvenido/index'
 
 #Regla
 root 'bienvenido#index'

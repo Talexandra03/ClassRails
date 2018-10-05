@@ -43,6 +43,6 @@ class TareasController < ApplicationController
         else
           render :edit
       end
-    end	
+    end	 
 
 end
