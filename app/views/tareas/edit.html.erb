@@ -3,9 +3,9 @@
 		<%=mensaje%>
 		</p>
 <%end%>
-
-<%= form_for(@tarea) do |f|%>
-<div class="form-group">
+<h1>Editar tarea</h1>
+<%= form_for(@tarea, url:{controller:"tareas", action:"update"}, html:{method: "put"}) do |f|%>
+	<div class="form-group">
 	<label>Titulo</label>
 	<%=f.text_field :titulo, class:"form-control", :required => true %>
 
