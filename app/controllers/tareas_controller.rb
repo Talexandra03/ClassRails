@@ -12,7 +12,7 @@ class TareasController < ApplicationController
   end
 
   	def create
-  		@tarea= Tarea.new(titulo: params[:tarea][:titulo], descripcion: params[:tarea][:descripcion])
+  		@tarea= Tarea.new(tarea_params)
         
         if @tarea.save 
         #insert into tareas (titulo,descripcion) values (formulario)
@@ -40,7 +40,7 @@ class TareasController < ApplicationController
     
     def update
       @tarea = Tarea.find(params[:id]) #Ruta
-      if  @tarea.update(titulo: params[:tarea][:titulo], descripcion: params[:tarea][:descripcion])
+      if  @tarea.update(tarea_params)
           redirect_to @tarea
         else
           render :edit
@@ -51,5 +51,8 @@ class TareasController < ApplicationController
       def set_tarea
         @tarea = Tarea.find(params[:id])
       end
-
+      
+      def tarea_params
+        params.require(:tarea).permit(:titulo,:descripcion)
+      end
 end
