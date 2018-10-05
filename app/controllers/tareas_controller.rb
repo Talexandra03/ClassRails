@@ -1,5 +1,6 @@
 class TareasController < ApplicationController
   
+  before_action :set_tarea, except: [:index, :new, :create]
   def index
   	@tareas = Tarea.all
   	#select * from tareas
@@ -22,18 +23,19 @@ class TareasController < ApplicationController
   	end
    
    def show
-      @tarea = Tarea.find(params[:id])
+    
       #select * from tareas where id=:id
     end
 
     def destroy
-      @tarea = Tarea.find(params[:id]) #Ruta
+    
+
       @tarea.destroy                  #Eliminar
       redirect_to tareas_path
     end
     
     def edit
-      @tarea = Tarea.find(params[:id]) #Ruta
+    
     end 
     
     def update
@@ -43,6 +45,11 @@ class TareasController < ApplicationController
         else
           render :edit
       end
-    end	 
+    end	
+    
+    private
+      def set_tarea
+        @tarea = Tarea.find(params[:id])
+      end
 
 end
