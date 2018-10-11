@@ -17,6 +17,7 @@ class TareasController < ApplicationController
       @tarea.usuario = current_usuario   
         if @tarea.save 
         #insert into tareas (titulo,descripcion) values (formulario)
+        CorreosMailer.notificacion(@tarea).deliver_now #(enviacorreoautomaticamente.deinmediato (deliver_now).)
         redirect_to  @tarea #action: 'show', id:
         else
         render :new
